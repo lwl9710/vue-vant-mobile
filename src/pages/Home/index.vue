@@ -3,10 +3,14 @@
 </template>
 <script lang="ts" setup>
 import { showToast } from "vant";
+import { test } from "@/apis/test";
 import useUserStore from "@/store/user";
 const userStore = useUserStore();
 const message = ref("Welcome to Home.");
 onMounted(() => {
+  test().then(res => {
+    console.log(res);
+  })
   showToast("首页加载完成");
   console.log(`[HOME]加载===>当前用户ID信息: 【${ userStore.userId }】`);
 });
