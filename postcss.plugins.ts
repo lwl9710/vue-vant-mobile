@@ -15,7 +15,7 @@ export function createPostcssPxtoremPlugin(): any {
 }
 
 // 兼容浏览器，添加前缀
-export function createAutoPrefixerPlugin(): autoprefixer.ExportedAPI {
+export function createAutoPrefixerPlugin(): any {
   return autoprefixer({
     overrideBrowserslist: [
       "Android 4.1",

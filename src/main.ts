@@ -4,8 +4,6 @@ import store from "./store";
 import App from "./App.vue";
 import "./libs";
 
-console.log(import.meta.env);
-
 const app = createApp(App);
 
 app.use(store);
