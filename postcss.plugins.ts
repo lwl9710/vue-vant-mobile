@@ -2,7 +2,7 @@ import postcssPxtorem from "postcss-pxtorem";
 import autoprefixer from "autoprefixer";
 
 // 单位转换
-export function createPostcssPxtoremPlugin() {
+export function createPostcssPxtoremPlugin(): any {
   return postcssPxtorem({
     rootValue: ({ file }) => file.indexOf("vant") === -1 ? 75 : 37.5, //结果为：设计稿元素尺寸/75，比如元素宽750px,最终页面会换算成 10rem
     propList: ["*"], //是一个存储哪些将被转换的属性列表，这里设置为['*']全部，假设需要仅对边框进行设置，可以写['*', '!border*']
@@ -15,7 +15,7 @@ export function createPostcssPxtoremPlugin() {
 }
 
 // 兼容浏览器，添加前缀
-export function createAutoPrefixerPlugin() {
+export function createAutoPrefixerPlugin(): autoprefixer.ExportedAPI {
   return autoprefixer({
     overrideBrowserslist: [
       "Android 4.1",
