@@ -4,7 +4,7 @@ import autoprefixer from "autoprefixer";
 // 单位转换
 export function createPostcssPxtoremPlugin(): any {
   return postcssPxtorem({
-    rootValue: ({ file }) => file.indexOf("vant") === -1 ? 75 : 37.5, //结果为：设计稿元素尺寸/75，比如元素宽750px,最终页面会换算成 10rem
+    rootValue: ({ file }) => /[\\/]vant[\\/]/i.test(file) ? 37.5 : 75, //结果为：设计稿元素尺寸/75，比如元素宽750px,最终页面会换算成 10rem
     propList: ["*"], //是一个存储哪些将被转换的属性列表，这里设置为['*']全部，假设需要仅对边框进行设置，可以写['*', '!border*']
     unitPrecision: 5, //保留rem小数点多少位
     //selectorBlackList: ['.radius'],  //则是一个对css选择器进行过滤的数组，比如你设置为['fs']，那例如fs-xl类名，里面有关px的样式将不被转换，这里也支持正则写法。
