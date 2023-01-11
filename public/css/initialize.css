@@ -1,0 +1,131 @@
+/*
+  日期: 2022.12.02
+  作者: Mr.lv(BigCat)
+  功能: 用于初始化页面默认样式
+*/
+
+/* 初始化边距 start */
+html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, li, dt, dd, caption, th, td, input, select, textarea, button, pre {
+  margin: 0;
+  padding: 0;
+}
+/* 初始化边距 end */
+
+/* 常用元素 start */
+body, select, input, button, textarea {
+  font-size: 16px;
+}
+
+html {
+  line-height: 1.25;
+  text-size-adjust: 100%;
+}
+
+body {
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+img {
+  border: none;
+  vertical-align: top;
+}
+
+ul, ol {
+  list-style: none;
+}
+/* 常用元素 end */
+
+/* 表单 start */
+table, caption, th, td {
+  border: 1px solid #000;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption {
+  border-bottom: none;
+}
+
+input, select, textarea {
+  border: none;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea::placeholder, input::placeholder {
+  color: #757575;
+}
+
+button {
+  background-color: #FFF;
+  border: none;
+}
+/* 表单 end */
+
+/* 滚动条 start */
+body, .element-scroll-bar {
+  overflow: overlay;
+}
+
+body::-webkit-scrollbar, .element-scroll-bar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body::-webkit-scrollbar-thumb, .element-scroll-bar::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, .8);
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2) inset;
+}
+
+body::-webkit-scrollbar-track, .element-scroll-bar::-webkit-scrollbar-track {
+  background-color: rgb(100, 100, 100, .4);
+}
+/* 滚动栏 end */
+
+/* 常用样式 start */
+[hidden] {
+  display: none;
+}
+
+.text-hide {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-second-hide, .text-third-hide {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.text-second-hide {
+  -webkit-line-clamp: 2;
+}
+
+.text-third-hide {
+  -webkit-line-clamp: 3;
+}
+
+.clearfix::before, .clearfix::after {
+  display: block;
+  content: "";
+}
+
+.clearfix::after {
+  clear: both;
+}
+/* 常用样式 end */
