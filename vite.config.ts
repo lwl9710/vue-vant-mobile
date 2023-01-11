@@ -69,6 +69,9 @@ export default defineConfig(({ mode }) => {
             if(/[\\/]vue-router[\\/]/i.test(filePath)) {
               return "vue-router";
             }
+            if(/[\\/]pinia[\\/]/i.test(filePath)) {
+              return "pinia";
+            }
             /* index文件取上级目录 */
             const IndexVueFileRegExp = /[\\/](?<name>[^\\/]+)[\\/]index\.vue$/i;
             const result = filePath.match(IndexVueFileRegExp);
