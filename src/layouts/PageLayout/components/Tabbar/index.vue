@@ -1,6 +1,6 @@
 <template>
 <div class="tabbar-safe-area"></div>
-<ul v-show="isTabbar" class="tabbar">
+<ul v-show="props.show" class="tabbar">
   <li class="tabbar-item" :class="{ active: route.name === tabbar.pageName }" v-for="tabbar in tabbarList" :key="tabbar.pageName" @click="clickToPage(tabbar.pageName)">
     <p class="icon">
       <img class="normal" :src="tabbar.iconPath" alt="" />
@@ -23,10 +23,9 @@ interface TabbarItem {
   iconPath: string,
   selectedIconPath: string
 }
-
-const router = useRouter();
+const props = defineProps<{ show: boolean }>();
 const route = useRoute();
-const isTabbar = computed(() => route.meta.isTabbarPage);
+const router = useRouter();
 const tabbarList: Ref<Array<TabbarItem>>  = ref([
   {
     text: "首页",
@@ -57,6 +56,8 @@ const clickToPage = (pageName: string) => {
   width: 100%;
   background-color: #FFF;
   border-top: 1Px solid #EEE;
+  z-index: 100;
+  transform: translateZ(100Px);
   .tabbar-item {
     flex: 1;
     text-align: center;

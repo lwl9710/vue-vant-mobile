@@ -1,27 +1,20 @@
 import { RouteRecordRaw } from "vue-router";
-import TabbarLayout from "@/layouts/TabBarLayout/index.vue";
 
 export default [
   {
     path: "/",
-    redirect: "/tabbar/home"
+    redirect: "/home"
   },
   {
-    path: "/tabbar",
-    component: TabbarLayout,
-    children: [
-      {
-        name: "Home",
-        path: "home",
-        component: () => import("@/pages/Home/index.vue"),
-        meta: { isTabbarPage: true }
-      },
-      {
-        name: "User",
-        path: "user",
-        component: () => import("@/pages/User/index.vue"),
-        meta: { isTabbarPage: true }
-      }
-    ]
+    name: "Home",
+    path: "home",
+    component: () => import("@/pages/Home/index.vue"),
+    meta: { isTabbarPage: true, title: "首页" }
+  },
+  {
+    name: "User",
+    path: "user",
+    component: () => import("@/pages/User/index.vue"),
+    meta: { isTabbarPage: true, title: "我的" }
   }
 ] as Array<RouteRecordRaw>;

@@ -16,3 +16,8 @@ onUnmounted(() => {
   console.log("[HOME]卸载");
 });
 </script>
+<style lang="scss" scoped>
+h1 {
+  height: 2000px;
+}
+</style>
