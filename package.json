@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vant/touch-emulator": "^1.4.0",
     "axios": "^1.2.2",
     "lib-flexible": "^0.3.2",
     "nprogress": "^0.2.0",

@@ -8,7 +8,7 @@
     </transition>
   </router-view>
 </div>
-<Tabbar :show="isTabbar"></Tabbar>
+<Tabbar v-if="isTabbar"></Tabbar>
 </template>
 <script name="TabBarLayout" lang="ts" setup>
 import { ComputedRef } from "vue";
