@@ -10,7 +10,7 @@ export function createPostcssPxtoremPlugin(): any {
     //selectorBlackList: ['.radius'],  //则是一个对css选择器进行过滤的数组，比如你设置为['fs']，那例如fs-xl类名，里面有关px的样式将不被转换，这里也支持正则写法。
     replace: true, //这个真不知到干嘛用的。有知道的告诉我一下
     mediaQuery: false, //媒体查询( @media screen 之类的)中不生效
-    minPixelValue: 12, //px小于12的不会被转换
+    // minPixelValue: 12, //px小于12的不会被转换
   });
 }
 

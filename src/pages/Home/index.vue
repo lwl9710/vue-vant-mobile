@@ -11,12 +11,17 @@
       <span @click="onSearch">搜索</span>
     </template>
   </van-search>
-  <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-    <van-swipe-item>1</van-swipe-item>
-    <van-swipe-item>2</van-swipe-item>
-    <van-swipe-item>3</van-swipe-item>
-    <van-swipe-item>4</van-swipe-item>
-  </van-swipe>
+  <BasicContainer top="15">
+    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+      <van-swipe-item>1</van-swipe-item>
+      <van-swipe-item>2</van-swipe-item>
+      <van-swipe-item>3</van-swipe-item>
+      <van-swipe-item>4</van-swipe-item>
+    </van-swipe>
+  </BasicContainer>
+  <BasicContainer top="15">
+    <h3>Welcome to Home.</h3>
+  </BasicContainer>
 </div>
 </template>
 <script name="Home" lang="ts" setup>
@@ -40,5 +45,6 @@ onUnmounted(() => {
   text-align: center;
   line-height: 300px;
   background-color: #39a9ed;
+  border-radius: 8px;
 }
 </style>

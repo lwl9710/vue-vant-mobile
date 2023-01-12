@@ -1,6 +1,8 @@
 <template>
 <div class="user">
-  <h1>{{ message }}</h1>
+  <BasicContainer top="15">
+    <h3>{{ message }}</h3>
+  </BasicContainer>
 </div>
 </template>
 <script name="User" lang="ts" setup>
