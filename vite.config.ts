@@ -14,6 +14,7 @@ function resolvePath(pathname: string): string {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
+  const isProduction = mode === "production";
   return {
     base: "./",
     resolve: {
@@ -24,7 +25,7 @@ export default defineConfig(({ mode }) => {
     server: {
       open: true,
       host: "0.0.0.0",
-      proxy: {
+      proxy: isProduction ? undefined : {
         [env.VITE_BASE_URL || "/dev"]: {
           ws: true,
           changeOrigin: true,
