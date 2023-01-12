@@ -6,17 +6,18 @@
 
 ### 项目技术栈
 
-|                        项目                         |  版本   |                            说明                            |
-| :-------------------------------------------------: | :-----: | :--------------------------------------------------------: |
-|           [vite](https://cn.vitejs.dev/)            | ^4.0.0  |      是一种新型前端构建工具，能够显著提升前端开发体验      |
-|        [typescript](https://www.tslang.cn/)         | ^4.9.3  | TypeScript是Javascript类型的超集，它可以编译成纯JavaScript |
-|            [vue](https://cn.vuejs.org/)             | ^3.2.45 |                   渐进式 JavaScript 框架                   |
-|       [vue-router](https://router.vuejs.org/)       | ^4.1.6  |                 Vue Router 是Vue的官方路由                 |
-|         [pinia](https://pinia.web3doc.top/)         | ^2.0.28 |     Pinia 是 Vue 的存储库，它允许您跨组件/页面共享状态     |
-| [vant](https://vant-contrib.gitee.io/vant/#/zh-CN/) | ^4.0.7  |            Vant 是一个轻量、可靠的移动端组件库             |
-|    [axios](http://axios-js.com/zh-cn/index.html)    | ^1.2.2  |                  易用、简洁且高效的http库                  |
-| [nprogress](https://github.com/rstacruz/nprogress)  | ^0.2.0  |                    应用程序的细长进度条                    |
-|           [postcss](https://postcss.org/)           |    /    |                使用JavaScript转换CSS的工具                 |
+|                            项目                             |  版本   |                            说明                            |
+| :---------------------------------------------------------: | :-----: | :--------------------------------------------------------: |
+|               [vite](https://cn.vitejs.dev/)                | ^4.0.0  |      是一种新型前端构建工具，能够显著提升前端开发体验      |
+|            [typescript](https://www.tslang.cn/)             | ^4.9.3  | TypeScript是Javascript类型的超集，它可以编译成纯JavaScript |
+|                [vue](https://cn.vuejs.org/)                 | ^3.2.45 |                   渐进式 JavaScript 框架                   |
+|           [vue-router](https://router.vuejs.org/)           | ^4.1.6  |                 Vue Router 是Vue的官方路由                 |
+|             [pinia](https://pinia.web3doc.top/)             | ^2.0.28 |     Pinia 是 Vue 的存储库，它允许您跨组件/页面共享状态     |
+|     [vant](https://vant-contrib.gitee.io/vant/#/zh-CN/)     | ^4.0.7  |            Vant 是一个轻量、可靠的移动端组件库             |
+|        [axios](http://axios-js.com/zh-cn/index.html)        | ^1.2.2  |                  易用、简洁且高效的http库                  |
+|     [nprogress](https://github.com/rstacruz/nprogress)      | ^0.2.0  |                    应用程序的细长进度条                    |
+|               [postcss](https://postcss.org/)               |    /    |                使用JavaScript转换CSS的工具                 |
+| [initialize.css](https://github.com/lwl9710/initialize.css) |    /    |                   用于初始化页面默认样式                   |
 
 ### 项目特色
 
