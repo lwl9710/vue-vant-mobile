@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => {
         [env.VITE_BASE_URL || "/dev"]: {
           ws: true,
           changeOrigin: true,
-          target: "https://www.baidu.com",
+          target: env.VITE_PROXY_TARGET,
           rewrite: path => path.replace(env.VITE_BASE_URL, "")
         }
       }
