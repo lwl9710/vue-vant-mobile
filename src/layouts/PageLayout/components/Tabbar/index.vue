@@ -45,34 +45,38 @@ const clickToPage = (pageName: string) => {
 };
 </script>
 <style lang="scss" scoped>
+.tabbar-safe-area, .tabbar {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
 .tabbar-safe-area {
-  height: 53Px;
+  height: 46Px;
 }
 .tabbar {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 100;
   display: flex;
+  padding: 3Px 0;
   width: 100%;
   background-color: #FFF;
-  border-top: 1Px solid #EEE;
-  z-index: 100;
+  box-shadow: 0 -1Px 1Px #EEE;
   transform: translateZ(100Px);
   .tabbar-item {
     flex: 1;
     text-align: center;
-    font-size: 16Px;
+    font-size: 14Px;
     .icon {
       img {
-        width: 32Px;
-        height: 32Px;
+        width: 26Px;
+        height: 26Px;
       }
       .selected {
         display: none;
       }
     }
     .label {
-      padding-top: 4Px;
       line-height: 1em;
     }
     &.active {

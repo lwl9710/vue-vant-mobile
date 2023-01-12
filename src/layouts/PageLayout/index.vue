@@ -1,12 +1,14 @@
 <template>
-  <div class="page-main" :class="{'is-tabbar': isTabbar}">
-    <router-view #="{ Component }">
+<div class="page-main" :class="{'is-tabbar': isTabbar}">
+  <router-view #="{ Component }">
+    <transition name="fade" mode="out-in">
       <keep-alive :include="catcheList">
-        <component :is="Component" />
+          <component :is="Component" />
       </keep-alive>
-    </router-view>
-  </div>
-  <Tabbar :show="isTabbar"></Tabbar>
+    </transition>
+  </router-view>
+</div>
+<Tabbar :show="isTabbar"></Tabbar>
 </template>
 <script name="TabBarLayout" lang="ts" setup>
 import { ComputedRef } from "vue";
@@ -20,6 +22,17 @@ const isTabbar = computed(() => route.meta.isTabbarPage) as ComputedRef<boolean>
   overflow: auto;
 }
 .page-main.is-tabbar {
-  height: calc(100% - 53Px);
+  height: calc(100% - 46Px);
+}
+</style>
+<style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
