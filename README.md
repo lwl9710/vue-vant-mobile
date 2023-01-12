@@ -71,5 +71,23 @@
      pageColor 页面背景颜色
      ```
 
-     
 
+### 命令行介绍
+
+* npm
+
+  ```shell
+  npm install 安装依赖
+  npm run dev 启动开发调试
+  npm run build 编译项目
+  ```
+
+* pnpm
+
+  ```shell
+  pnpm install 安装依赖
+  pnpm dev 启动开发调试
+  pnpm build 编译项目
+  ```
+
+  
