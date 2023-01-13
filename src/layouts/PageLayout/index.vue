@@ -10,7 +10,7 @@
 </div>
 <Tabbar v-if="isTabbar"></Tabbar>
 </template>
-<script name="TabBarLayout" lang="ts" setup>
+<script name="PageLayout" lang="ts" setup>
 import { ComputedRef } from "vue";
 import Tabbar from "./components/Tabbar/index.vue";
 const catcheList = ref([ "Home", "User" ]);
