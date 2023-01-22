@@ -22,7 +22,9 @@ const isTabbar = computed(() => route.meta.isTabbarPage) as ComputedRef<boolean>
   overflow: auto;
 }
 .page-main.is-tabbar {
-  height: calc(100% - 46Px);
+  height: calc(100% - 50Px);
+  height: calc(100% - 50Px - constant(safe-area-inset-bottom));
+  height: calc(100% - 50Px - env(safe-area-inset-bottom));
 }
 </style>
 <style lang="scss" scoped>

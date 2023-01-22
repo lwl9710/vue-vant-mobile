@@ -62,7 +62,7 @@ const isActive = (pageName: string) => {
 </script>
 <style lang="scss" scoped>
 .tabbar-safe-area, .tabbar {
-  height: 46Px;
+  height: 50Px;
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
