@@ -77,7 +77,8 @@ export default defineConfig(({ mode }) => {
             const IndexVueFileRegExp = /[\\/](?<name>[^\\/]+)[\\/]index\.vue$/i;
             const result = filePath.match(IndexVueFileRegExp);
             if(result) {
-              return result.groups.name || undefined
+              const filename = result.groups.name[0].toLowerCase() + result.groups.name.substring(1).replace(/[A-Z]/g, letter => `-${ letter.toLowerCase() }`);
+              return filename;
             }
             /* 其他依赖处理 */
             if(/[\\/]node_modules[\\/]/i.test(filePath)) {
