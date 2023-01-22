@@ -3,18 +3,22 @@
 <ul class="tabbar" :style="{ backgroundColor: settingStore.tabbarBackgroundColor }">
   <template v-for="tabbar in tabbarList" :key="tabbar.pageName">
     <!-- 选中模板 -->
-    <li v-if="isActive(tabbar.pageName)" class="tabbar-item" @click="clickToPage(tabbar.pageName)">
-      <p class="icon">
-        <img class="selected" :src="tabbar.selectedIconPath" alt="" />
-      </p>
-      <p class="text" :style="{ color: tabbar.selectedTextColor || settingStore.tabbarSelectedTextColor }">{{ tabbar.text }}</p>
+    <li v-if="isActive(tabbar.pageName)" class="tabbar-item">
+      <div class="item-wrapper" @click="clickToPage(tabbar.pageName)">
+        <p class="icon">
+          <img class="selected" :src="tabbar.selectedIconPath" alt="" />
+        </p>
+        <p class="text" :style="{ color: tabbar.selectedTextColor || settingStore.tabbarSelectedTextColor }">{{ tabbar.text }}</p>
+      </div>
     </li>
     <!-- 未选中模板 -->
-    <li v-else class="tabbar-item" @click="clickToPage(tabbar.pageName)">
-      <p class="icon">
-        <img class="normal" :src="tabbar.iconPath" alt="" />
-      </p>
-      <p class="text" :style="{ color: tabbar.textColor || settingStore.tabbarTextColor }">{{ tabbar.text }}</p>
+    <li v-else class="tabbar-item">
+      <div class="item-wrapper" @click="clickToPage(tabbar.pageName)">
+        <p class="icon">
+          <img class="normal" :src="tabbar.iconPath" alt="" />
+        </p>
+        <p class="text" :style="{ color: tabbar.textColor || settingStore.tabbarTextColor }">{{ tabbar.text }}</p>
+      </div>
     </li>
   </template>
 </ul>
@@ -72,13 +76,18 @@ const isActive = (pageName: string) => {
   left: 0;
   z-index: 100;
   display: flex;
-  align-items: center;
   width: 100%;
   box-shadow: 0 -1Px 1Px #EEE;
   .tabbar-item {
     flex: 1;
     text-align: center;
     font-size: 14Px;
+    .item-wrapper {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
     .icon {
       img {
         width: 26Px;
