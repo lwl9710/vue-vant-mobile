@@ -1,26 +1,15 @@
 <template>
 <div class="tabbar-safe-area"></div>
 <ul class="tabbar" :style="{ backgroundColor: settingStore.tabbarBackgroundColor }">
-  <template v-for="tabbar in tabbarList" :key="tabbar.pageName">
-    <!-- 选中模板 -->
-    <li v-if="isActive(tabbar.pageName)" class="tabbar-item">
-      <div class="item-wrapper" @click="clickToPage(tabbar.pageName)">
-        <p class="icon">
-          <img class="selected" :src="tabbar.selectedIconPath" alt="" />
-        </p>
-        <p class="text" :style="{ color: tabbar.selectedTextColor || settingStore.tabbarSelectedTextColor }">{{ tabbar.text }}</p>
-      </div>
-    </li>
-    <!-- 未选中模板 -->
-    <li v-else class="tabbar-item">
-      <div class="item-wrapper" @click="clickToPage(tabbar.pageName)">
-        <p class="icon">
-          <img class="normal" :src="tabbar.iconPath" alt="" />
-        </p>
-        <p class="text" :style="{ color: tabbar.textColor || settingStore.tabbarTextColor }">{{ tabbar.text }}</p>
-      </div>
-    </li>
-  </template>
+  <li class="tabbar-item" :class="{ active: isActive(tabbar.pageName) }" v-for="tabbar in tabbarList" :key="tabbar.pageName">
+    <div class="item-wrapper" @click="clickToPage(tabbar.pageName)">
+      <p class="icon">
+        <img class="selected" :src="tabbar.selectedIconPath" alt="" />
+        <img class="normal" :src="tabbar.iconPath" alt="" />
+      </p>
+      <p class="text" :style="getTabbarItemTextStyle(tabbar)">{{ tabbar.text }}</p>
+    </div>
+  </li>
 </ul>
 </template>
 <script lang="ts" setup>
@@ -63,6 +52,14 @@ const clickToPage = (pageName: string) => {
 const isActive = (pageName: string) => {
   return route.name === pageName;
 }
+
+const getTabbarItemTextStyle = (item: TabbarItem) => {
+  if(isActive(item.pageName)) {
+    return { color: item.selectedTextColor || settingStore.tabbarSelectedTextColor }
+  } else {
+    return { color: item.textColor || settingStore.tabbarTextColor }
+  }
+}
 </script>
 <style lang="scss" scoped>
 .tabbar-safe-area, .tabbar {
@@ -93,9 +90,20 @@ const isActive = (pageName: string) => {
         width: 26Px;
         height: 26Px;
       }
+      .selected {
+        display: none;
+      }
     }
     .text {
       line-height: 1em;
+    }
+    &.active .icon {
+      .normal {
+        display: none;
+      }
+      .selected {
+        display: inline-block;
+      }
     }
   }
 }
