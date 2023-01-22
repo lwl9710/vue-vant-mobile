@@ -11,9 +11,10 @@
 <Tabbar v-if="isTabbar"></Tabbar>
 </template>
 <script name="PageLayout" lang="ts" setup>
+import { CACHE_PAGE_LIST } from "@/config/website";
 import { ComputedRef } from "vue";
 import Tabbar from "./components/Tabbar/index.vue";
-const catcheList = ref([ "Home", "User" ]);
+const catcheList = ref(CACHE_PAGE_LIST);
 const route = useRoute();
 const isTabbar = computed(() => route.meta.isTabbarPage) as ComputedRef<boolean>;
 </script>
