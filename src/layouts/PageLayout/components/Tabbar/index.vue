@@ -62,11 +62,9 @@ const isActive = (pageName: string) => {
 </script>
 <style lang="scss" scoped>
 .tabbar-safe-area, .tabbar {
+  height: 46Px;
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
-}
-.tabbar-safe-area {
-  height: 46Px;
 }
 .tabbar {
   position: fixed;
@@ -74,10 +72,9 @@ const isActive = (pageName: string) => {
   left: 0;
   z-index: 100;
   display: flex;
-  padding: 3Px 0;
+  align-items: center;
   width: 100%;
   box-shadow: 0 -1Px 1Px #EEE;
-  transform: translateZ(100Px);
   .tabbar-item {
     flex: 1;
     text-align: center;
