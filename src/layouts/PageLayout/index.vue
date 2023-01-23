@@ -11,16 +11,20 @@
 <Tabbar v-if="isTabbar"></Tabbar>
 </template>
 <script name="PageLayout" lang="ts" setup>
-import { CACHE_PAGE_LIST } from "@/config/website";
 import { ComputedRef } from "vue";
+import { CACHE_PAGE_LIST } from "@/config/website";
 import Tabbar from "./components/Tabbar/index.vue";
 const catcheList = ref(CACHE_PAGE_LIST);
 const route = useRoute();
 const isTabbar = computed(() => route.meta.isTabbarPage) as ComputedRef<boolean>;
 </script>
 <style lang="scss">
+#app {
+  overflow: auto;
+}
 .page-main {
   overflow: auto;
+  width: 100%;
 }
 .page-main.is-tabbar {
   height: calc(100% - 50Px);
@@ -31,7 +35,7 @@ const isTabbar = computed(() => route.meta.isTabbarPage) as ComputedRef<boolean>
 <style lang="scss" scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 }
 
 .fade-enter-from,

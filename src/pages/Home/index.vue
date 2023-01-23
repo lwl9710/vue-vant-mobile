@@ -13,7 +13,7 @@
   </van-search>
   <BasicContainer top="15">
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item>1</van-swipe-item>
+      <van-swipe-item @click="router.push({ name: 'Test' })">1</van-swipe-item>
       <van-swipe-item>2</van-swipe-item>
       <van-swipe-item>3</van-swipe-item>
       <van-swipe-item>4</van-swipe-item>
@@ -26,11 +26,14 @@
 </template>
 <script name="Home" lang="ts" setup>
 import { test } from "@/apis/test";
+import useSavePageScroll from "@/hooks/useSavePageScroll";
 const searchContent = ref("");
+const route = useRoute();
+const router = useRouter();
+useSavePageScroll(route.fullPath);
 function onSearch() {
   console.log("触发搜索事件");
 }
-
 onMounted(() => {
   test().then(res => {
     console.log("测试接口调用:", res);
@@ -41,6 +44,9 @@ onUnmounted(() => {
 });
 </script>
 <style lang="scss" scoped>
+.home{
+  height: 1000Px;
+}
 .my-swipe {
   text-align: center;
   line-height: 300px;
