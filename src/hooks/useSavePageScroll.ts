@@ -27,9 +27,7 @@ export default function useSavePageScroll(key: string) {
       left: pageMainEl.scrollLeft,
       top: pageMainEl.scrollTop
     }
-    setTimeout(() => {
-      pageMainEl.style.opacity = "0";
-    }, 200);
+    pageMainEl.style.opacity = "0";
   });
   onUpdated(() => {
     const pageMainEl = document.getElementsByClassName("page-main")[0];
