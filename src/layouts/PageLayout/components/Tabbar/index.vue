@@ -46,7 +46,7 @@ const tabbarList: Ref<Array<TabbarItem>>  = ref([
   }
 ]);
 const clickToPage = (pageName: string) => {
-  router.push({ name: pageName });
+  router.replace({ name: pageName });
 };
 
 const isActive = (pageName: string) => {
