@@ -22,11 +22,14 @@ export function removePagePosition(fullPath: string): void {
 // 增加页面滚动信息记录
 export default function useSavePageScroll(key: string) {
   onBeforeRouteLeave(() => {
-    const pageMainEl = document.getElementsByClassName("page-main")[0];
+    const pageMainEl = document.getElementsByClassName("page-main")[0] as HTMLElement;
     PAGE_SCROLL_MAP[key] =  {
       left: pageMainEl.scrollLeft,
       top: pageMainEl.scrollTop
     }
+    setTimeout(() => {
+      pageMainEl.style.opacity = "0";
+    }, 200);
   });
   onUpdated(() => {
     const pageMainEl = document.getElementsByClassName("page-main")[0];
