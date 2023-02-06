@@ -1,22 +1,15 @@
 <template>
 <div class="tabbar-safe-area"></div>
 <ul class="tabbar" :style="{ backgroundColor: settingStore.tabbarBackgroundColor }">
-  <template v-for="tabbar in tabbarList" :key="tabbar.pageName">
-    <!-- 选中模板 -->
-    <li v-if="isActive(tabbar.pageName)" class="tabbar-item" @click="clickToPage(tabbar.pageName)">
+  <li class="tabbar-item" :class="{ active: isActive(tabbar.pageName) }" v-for="tabbar in tabbarList" :key="tabbar.pageName">
+    <div class="item-wrapper" @click="clickToPage(tabbar.pageName)">
       <p class="icon">
         <img class="selected" :src="tabbar.selectedIconPath" alt="" />
-      </p>
-      <p class="text" :style="{ color: tabbar.selectedTextColor || settingStore.tabbarSelectedTextColor }">{{ tabbar.text }}</p>
-    </li>
-    <!-- 未选中模板 -->
-    <li v-else class="tabbar-item" @click="clickToPage(tabbar.pageName)">
-      <p class="icon">
         <img class="normal" :src="tabbar.iconPath" alt="" />
       </p>
-      <p class="text" :style="{ color: tabbar.textColor || settingStore.tabbarTextColor }">{{ tabbar.text }}</p>
-    </li>
-  </template>
+      <p class="text" :style="getTabbarItemTextStyle(tabbar)">{{ tabbar.text }}</p>
+    </div>
+  </li>
 </ul>
 </template>
 <script lang="ts" setup>
@@ -53,20 +46,26 @@ const tabbarList: Ref<Array<TabbarItem>>  = ref([
   }
 ]);
 const clickToPage = (pageName: string) => {
-  router.push({ name: pageName });
+  router.replace({ name: pageName });
 };
 
 const isActive = (pageName: string) => {
   return route.name === pageName;
 }
+
+const getTabbarItemTextStyle = (item: TabbarItem) => {
+  if(isActive(item.pageName)) {
+    return { color: item.selectedTextColor || settingStore.tabbarSelectedTextColor }
+  } else {
+    return { color: item.textColor || settingStore.tabbarTextColor }
+  }
+}
 </script>
 <style lang="scss" scoped>
 .tabbar-safe-area, .tabbar {
+  height: 50Px;
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
-}
-.tabbar-safe-area {
-  height: 46Px;
 }
 .tabbar {
   position: fixed;
@@ -74,22 +73,37 @@ const isActive = (pageName: string) => {
   left: 0;
   z-index: 100;
   display: flex;
-  padding: 3Px 0;
   width: 100%;
   box-shadow: 0 -1Px 1Px #EEE;
-  transform: translateZ(100Px);
   .tabbar-item {
     flex: 1;
     text-align: center;
     font-size: 14Px;
+    .item-wrapper {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
     .icon {
       img {
         width: 26Px;
         height: 26Px;
       }
+      .selected {
+        display: none;
+      }
     }
     .text {
       line-height: 1em;
+    }
+    &.active .icon {
+      .normal {
+        display: none;
+      }
+      .selected {
+        display: inline-block;
+      }
     }
   }
 }

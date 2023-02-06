@@ -16,5 +16,10 @@ export default [
     path: "user",
     component: () => import("@/pages/User/index.vue"),
     meta: { isTabbarPage: true, title: "我的" }
+  },
+  {
+    name: "Test",
+    path: "test",
+    component: () => import("@/pages/Test/index.vue")
   }
 ] as Array<RouteRecordRaw>;
