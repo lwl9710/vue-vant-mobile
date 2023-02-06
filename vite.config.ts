@@ -42,25 +42,34 @@ export default defineConfig(({ mode }) => {
     build: {
       rollupOptions: {
         output: {
-          chunkFileNames: "js/[name]-[hash].js",
-          entryFileNames: "js/[name]-[hash].js",
+          entryFileNames: "js/[name].[hash].js",
+          chunkFileNames: ({ moduleIds }) => {
+            const chunkFileName = moduleIds[moduleIds.length - 1];
+            if(!chunkFileName.includes("/node_modules/") && /(index)\.[^.]+$/i.test(chunkFileName)) {
+              const chhunkFilePaths = chunkFileName.split("/");
+              let name = chhunkFilePaths[chhunkFilePaths.length - 2];
+              name = name[0].toLowerCase() + name.substring(1).replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
+              return `js/${name}.[hash].js`;
+            } else {
+              return "js/[name].[hash].js";
+            }
+          },
           assetFileNames({ name }) {
             if(/\.(jpe?g|png|gif|webp|svg)$/i.test(name)) {
-              return "images/[name]-[hash].[ext]";
+              return "images/[name].[hash].[ext]";
             }
             if(/\.svg$/i.test(name)) {
-              return "svg/[name]-[hash].[ext]";
+              return "svg/[name].[hash].[ext]";
             }
             if(/\.(woff|woff2|eot|ttf|otf)$/i.test(name)) {
-              return "fonts/[name]-[hash].[ext]";
+              return "fonts/[name].[hash].[ext]";
             }
             if(/\.css$/i.test(name)) {
-              return "css/[name]-[hash].[ext]";
+              return "css/[name].[hash].[ext]";
             }
-            return "[name]-[hash].[ext]";
+            return "assets/[name].[hash].[ext]";
           },
           manualChunks: (filePath) => {
-            filePath = filePath.split("?")[0];
             if(/[\\/]vant[\\/]/i.test(filePath)) {
               return "vant";
             }
@@ -72,12 +81,6 @@ export default defineConfig(({ mode }) => {
             }
             if(/[\\/]pinia[\\/]/i.test(filePath)) {
               return "pinia";
-            }
-            /* index文件取上级目录 */
-            const IndexVueFileRegExp = /[\\/](?<name>[^\\/]+)[\\/]index\.vue$/i;
-            const result = filePath.match(IndexVueFileRegExp);
-            if(result) {
-              return result.groups.name || undefined
             }
             /* 其他依赖处理 */
             if(/[\\/]node_modules[\\/]/i.test(filePath)) {
