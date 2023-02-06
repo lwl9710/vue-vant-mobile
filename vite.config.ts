@@ -55,7 +55,7 @@ export default defineConfig(({ mode }) => {
             }
           },
           assetFileNames({ name }) {
-            if(/\.(jpe?g|png|gif|webp|svg)$/i.test(name)) {
+            if(/\.(jpe?g|png|gif|webp)$/i.test(name)) {
               return "images/[name].[hash].[ext]";
             }
             if(/\.svg$/i.test(name)) {
