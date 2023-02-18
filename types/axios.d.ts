@@ -1,10 +1,11 @@
 import "axios";
 
 declare module "axios" {
-  export interface RawAxiosRequestConfig<any> {
+  export interface InternalAxiosRequestConfig<any> {
     meta?: StringObject
   }
-  export interface AxiosRequestConfig<any>{
+
+  export interface AxiosRequestConfig<any> {
     meta?: StringObject
   }
 }
