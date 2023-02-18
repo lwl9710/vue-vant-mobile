@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { RawAxiosRequestConfig } from "axios";
 import { showLoadingToast, closeToast } from "vant";
 import { NETWORK_TIMEOUT, BASE_URL } from "@/config/website";
 
@@ -7,7 +7,7 @@ const request = axios.create({
   baseURL: BASE_URL
 });
 
-request.interceptors.request.use((config) => {
+request.interceptors.request.use((config: RawAxiosRequestConfig) => {
   const meta =  config.meta || {};
   if(meta.isLoading) {
     showLoadingToast({
@@ -28,7 +28,7 @@ request.interceptors.response.use((response) => {
   const meta =  Object.assign({
     isBody: true,
     isLoading: false
-  }, response.config.meta);
+  }, response.request.meta);
   if(meta.isLoading) {
     closeToast(true);
   }
