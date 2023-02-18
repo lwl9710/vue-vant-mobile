@@ -42,10 +42,6 @@ ul, ol {
 /* 常用元素 end */
 
 /* 表单 start */
-table, caption, th, td {
-  border: 1px solid #000;
-}
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -75,22 +71,22 @@ button {
 /* 表单 end */
 
 /* 滚动条 start */
-body, .element-scroll-bar {
+.element-scroll-bar {
   overflow: overlay;
 }
 
-body::-webkit-scrollbar, .element-scroll-bar::-webkit-scrollbar {
+.element-scroll-bar::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-body::-webkit-scrollbar-thumb, .element-scroll-bar::-webkit-scrollbar-thumb {
+.element-scroll-bar::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: rgba(255, 255, 255, .8);
   box-shadow: 0 0 2px rgba(0, 0, 0, .2) inset;
 }
 
-body::-webkit-scrollbar-track, .element-scroll-bar::-webkit-scrollbar-track {
+.element-scroll-bar::-webkit-scrollbar-track {
   background-color: rgb(100, 100, 100, .4);
 }
 /* 滚动栏 end */
